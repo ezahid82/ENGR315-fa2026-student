@@ -15,8 +15,16 @@ Note that Elon's capital will be $33B.
 ### all your code below ###
 
 
+elon_capital = 33000000000 # initial capital in dollars
+ten_year_rate = 3.96 # interest rate for 10-year bonds in percent
+twenty_year_rate = 4.32 # interest rate for 20-year bonds in percent
+ten_year_calc = elon_capital * (1 + ten_year_rate/100)**10 # A = P(1 + r/n)^(nt)
+twenty_year_calc = elon_capital * (1 + twenty_year_rate/100)**20 # A = P(1 + r/n)^(nt)
+
 # final answer for 10-year
-ten_year_final = None
+ten_year_final = ten_year_calc # final value of the investment after 10 years
+print("10-year final value:", ten_year_final) # printing final value
 
 # final answer for 20-year
-twenty_year_final = None
+twenty_year_final = twenty_year_calc # final value of the investment after 20 years
+print("20-year final value:", twenty_year_final) # printing final value

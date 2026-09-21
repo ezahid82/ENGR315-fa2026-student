@@ -27,5 +27,14 @@ nums = generate_random_int_list(max_length, upper_bound)
 # create two variables to hold the final answers
 num_evens = 0
 num_odds = 0
-
 ### YOUR CODE BEGINS HERE ###
+
+if nums:  # check if the list is not empty
+    for i in nums:  # iterate/go through each number in the list to start checking
+        if i % 2 == 0:  # check if the number is even by dividing it by 2 and checking if the remainder is 0
+            num_evens += 1  # increment the even count
+        else: # if the number is not even, meaninging the division by 2 has a remainder, then it is odd
+            num_odds += 1  # increment the odd count 
+
+print(f"Number of evens: {num_evens}")  # print the number of even numbers
+print(f"Number of odds: {num_odds}")  # print the number of odd numbers

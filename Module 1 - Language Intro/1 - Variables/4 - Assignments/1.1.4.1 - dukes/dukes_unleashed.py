@@ -17,3 +17,13 @@ Note: this problem does not require the "compounding interest" formula from the 
 in_state_gift = 0
 
 out_state_gift = 0
+
+# my interpretation: it's asking how much money needs to be invested so that 5% of the investment 
+#   equals the annual cost of attendance both in and out of state
+
+in_state_gift = 30792 / 0.05  ## the annual cost for an in-state student divided by 5%
+out_state_gift = 47882 / 0.05  ## the annual cost for an out-of-state student divided by 5%
+
+print("In-state gift needed:", in_state_gift) # printing the amount
+print("Out-of-state gift needed:", out_state_gift) # printing the amount
+

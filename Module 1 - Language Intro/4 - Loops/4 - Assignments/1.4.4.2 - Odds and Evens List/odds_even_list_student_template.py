@@ -30,13 +30,19 @@ odds_list = []
 """
 Step 1: Write a FOR loop to iterate through the list nums
 """
-
+# writing a FOR loop to iterate through the list [nums]. 
+for i in nums:
+    if i % 2 == 0: # Check if the number is even
+        evens_list.append(i) # if it's even, append it to the evens_list
+    else: # otherwise
+        odds_list.append(i) # if it's odd, append it to the odds_list
 
 """
 Step 2: Inside the FOR loop, examine the contents of nums. If the
 value is even, place it in the evens_list. If it is odd, place it in the 
 odds_list
 """
+
 
 print("The evens list contains: ", evens_list)
 print("The odds list contains: ", odds_list)

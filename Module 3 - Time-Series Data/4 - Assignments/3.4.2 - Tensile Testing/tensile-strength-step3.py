@@ -61,8 +61,9 @@ def calculate_stress(force, sample_diameter):
     """
 
     ### YOUR SOLUTION FROM STEP 1 TEMPLATE HERE ###
-
-    return None
+    cross_sectional_area = np.pi * (sample_diameter / 2) ** 2
+    stress = force / cross_sectional_area * 1000
+    return stress
 
 
 def calculate_max_strength_strain(strain, stress):
@@ -76,8 +77,9 @@ def calculate_max_strength_strain(strain, stress):
     """
 
     ### YOUR SOLUTION FROM STEP 2 TEMPLATE HERE ###
-
-    return -1, -1
+    ultimate_tensile_stress = np.max(stress)
+    fracture_strain = np.max(strain)
+    return ultimate_tensile_stress, fracture_strain
 
 def calculate_elastic_modulus(strain, stress):
     """
@@ -98,34 +100,36 @@ def calculate_elastic_modulus(strain, stress):
 
     # Step 3a: find the point that is 40% of peak stress
     # use from 0 to that value to create a linear plot
+    pt_40_percent = 0.4 * np.max(stress)
 
     ### your code below ###
-    secant_strain = -1
+    secant_strain = None
 
     # Step 3b: find the intersection between 40% line and the curvey
     # take the abs() difference between the stress vector and secant_strain point
 
     ### your code below ###
-    diffs = -1
+    diffs = np.abs(stress - pt_40_percent)  # Calculate the absolute difference between stress and 40% of peak stress
 
     # use np.argmin() to find the minimum of the diffs array.
     # this will be the INDEX of the point in stress-strain that is closest to
     # secant_strain intersection
+    np.argmin(diffs)
 
     # uncomment the line below and replace with your own
-    # linear_index = ....
+    linear_index = np.argmin(diffs) 
 
     # Step 3c: down select to linear region for stress and strain
     # using list slicing. Uncomment lines below
-    # linear_stress = stress[# list slice#]
-    # linear_strain = strain[#list slice#]
+    linear_stress = stress[:linear_index]
+    linear_strain = strain[:linear_index]
 
     # Step 3d: find least squares fit to a line in the linear region
     # use 1-degree polynominal fit (line) from np.polyfit
     # save the slope and intercept so we can plot the line later
 
     # uncomment the line below and call np.polyfit
-    # slope, intercept = ....
+    slope, intercept = np.polyfit(linear_strain, linear_stress, 1)
 
     return linear_index, slope, intercept
 
